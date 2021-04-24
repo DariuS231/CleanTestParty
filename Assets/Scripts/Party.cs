@@ -28,7 +28,9 @@ public class Party : MonoBehaviour
     private void OnError(object sender, PlayFabMultiplayerManagerErrorArgs args)
     {
         Logger.Instance.LogError("Party  -   OnError");
-        Logger.Instance.LogError(args.ToString());
+        Logger.Instance.LogError($"Code: {args.Code}\n");
+        Logger.Instance.LogError($"Message: {args.Message}\n");
+        Logger.Instance.LogError($"Type: {args.Type}\n");
     }
 
     private void OnNetworkJoined(object sender, string networkId)

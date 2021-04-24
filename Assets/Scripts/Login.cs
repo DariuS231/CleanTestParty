@@ -50,7 +50,7 @@ public class Login : MonoBehaviour
     public static event Action UserAuthenticated;
 
 
-#region LogIn
+    #region LogIn
     private void LogInClient()
     {
         var localId = GUIDUtility.getUniqueID();
@@ -72,7 +72,11 @@ public class Login : MonoBehaviour
     private void HandleLogInError(PlayFabError error)
     {
         Logger.Instance.LogError("Login  -   HandleLogInError");
-        Logger.Instance.LogError(error.ToString());
+        Logger.Instance.LogError($"ApiEndpoint: {error.ApiEndpoint}\n");
+        Logger.Instance.LogError($"CustomData: {error.CustomData}\n");
+        Logger.Instance.LogError($"Error: {error.Error}\n");
+        Logger.Instance.LogError($"ErrorDetails: {error.ErrorDetails}\n");
+        Logger.Instance.LogError($"ErrorMessage: {error.ErrorMessage}\n");
     }
 
     private void HandleLogInSuccess(LoginResult response)
@@ -85,6 +89,6 @@ public class Login : MonoBehaviour
     }
 
 
-#endregion
+    #endregion
 
 }
